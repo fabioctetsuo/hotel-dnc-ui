@@ -1,0 +1,29 @@
+import React from "react";
+import Image from "next/image";
+
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
+const Layout = ({ children }: LayoutProps) => {
+  return (
+    <>
+      <header className="w-full flex justify-center py-5 border-b border-b-lightest-grey">
+        <Image
+          src="/logo-nestaway.png"
+          alt="Next Away logo"
+          width={45}
+          height={40}
+        />
+      </header>
+      <main className="w-full flex justify-center align-middle">
+        {children}
+      </main>
+      <footer className="w-full flex justify-center py-6 bg-snow-white border-t border-t-light-grey">
+        © 2024 Nest Away, Inc.
+      </footer>
+    </>
+  );
+};
+
+export default Layout;
