@@ -1,5 +1,6 @@
 "use client";
 import Button from "@/components/Button";
+import Link from "@/components/Link";
 
 const TestePage = () => {
   return (
@@ -10,6 +11,7 @@ const TestePage = () => {
       <Button appearance="secondary" onClick={console.log}>
         clique em mim 2
       </Button>
+      <Link href="/">pagina inicial</Link>
     </div>
   );
 };

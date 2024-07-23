@@ -22,8 +22,9 @@ const config: Config = {
         "main-brand-green-700": "#02604f",
       },
       borderColor: {
-        "light-grey": "#bcbcbc",
-        "lightest-grey": "#E7E4E4",
+        "light-grey-400": "#E7E4E4",
+        "light-grey-500": "#bcbcbc",
+        "light-grey-600": "#ABABAB",
       },
       colors: {
         "main-brand-green-500": "#116b5a",
