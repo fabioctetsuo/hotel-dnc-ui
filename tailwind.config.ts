@@ -15,10 +15,21 @@ const config: Config = {
       },
       backgroundColor: {
         "snow-white": "#ebebeb",
+        "main-brand-green-300": "#1dbb9e",
+        "main-brand-green-400": "#1a9e86",
+        "main-brand-green-500": "#116b5a",
+        "main-brand-green-600": "#0e594b",
+        "main-brand-green-700": "#02604f",
       },
       borderColor: {
         "light-grey": "#bcbcbc",
         "lightest-grey": "#E7E4E4",
+      },
+      colors: {
+        "main-brand-green-500": "#116b5a",
+      },
+      ringColor: {
+        "main-brand-green-300": "#1dbb9e",
       },
     },
   },

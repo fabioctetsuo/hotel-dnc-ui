@@ -1,5 +1,17 @@
+"use client";
+import Button from "@/components/Button";
+
 const TestePage = () => {
-  return <div>teste page</div>;
+  return (
+    <div className="w-80 flex justify-center flex-col">
+      <Button appearance="primary" onClick={console.log}>
+        clique em mim
+      </Button>
+      <Button appearance="secondary" onClick={console.log}>
+        clique em mim 2
+      </Button>
+    </div>
+  );
 };
 
 export default TestePage;
