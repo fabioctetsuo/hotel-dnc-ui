@@ -20,14 +20,20 @@ const config: Config = {
         "main-brand-green-500": "#116b5a",
         "main-brand-green-600": "#0e594b",
         "main-brand-green-700": "#02604f",
+        "light-grey-400": "#E7E4E4",
+        "light-grey-500": "#bcbcbc",
       },
       borderColor: {
+        "main-brand-green-300": "#1dbb9e",
+        "light-grey-300": "#D9D9D9",
         "light-grey-400": "#E7E4E4",
         "light-grey-500": "#bcbcbc",
         "light-grey-600": "#ABABAB",
       },
       colors: {
+        "main-brand-green-300": "#1dbb9e",
         "main-brand-green-500": "#116b5a",
+        "light-grey-800": "#636363",
       },
       ringColor: {
         "main-brand-green-300": "#1dbb9e",
