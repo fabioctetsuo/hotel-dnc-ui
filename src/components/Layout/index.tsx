@@ -10,7 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <header className="w-full flex justify-center py-5 border-b border-b-light-grey-400">
         <Image
-          src="/logo-nestaway.png"
+          src="/logo-dnc.png"
           alt="Next Away logo"
           width={45}
           height={40}

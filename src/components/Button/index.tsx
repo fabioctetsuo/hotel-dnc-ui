@@ -18,12 +18,16 @@ export const Button = ({
   children,
   onClick,
   appearance = "primary",
+  className,
 }: ButtonTypes) => {
-  const commonStyles = "py-4 px-6 w-full border-none rounded-lg font-bold";
+  const commonStyles = "py-2 px-6 w-full border-none rounded-lg font-medium";
   const apperanceStyles = getClassNamesByType(appearance);
 
   return (
-    <button onClick={onClick} className={`${commonStyles} ${apperanceStyles}`}>
+    <button
+      onClick={onClick}
+      className={`${commonStyles} ${apperanceStyles} ${className}`}
+    >
       {children}
     </button>
   );

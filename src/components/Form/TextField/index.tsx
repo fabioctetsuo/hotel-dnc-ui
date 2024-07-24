@@ -4,18 +4,25 @@ type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label: string;
 };
 
-export const TextField = ({ id, label }: TextFieldProps) => {
+export const TextField = ({
+  id,
+  label,
+  type = "text",
+  className,
+  ...props
+}: TextFieldProps) => {
   return (
-    <div>
-      <label htmlFor={id} hidden>
+    <div className={`w-full ${className}`}>
+      <label htmlFor={id} className="sr-only">
         {label}
       </label>
       <input
         id={id}
-        type="text"
+        type={type}
         aria-label={label}
         placeholder={label}
         className="border border-light-grey-600 rounded-lg w-full px-4 py-2"
+        {...props}
       />
     </div>
   );
