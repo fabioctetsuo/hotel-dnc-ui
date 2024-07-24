@@ -2,6 +2,7 @@
 import Button from "@/components/Button";
 import Link from "@/components/Link";
 import TextField from "@/components/Form/TextField";
+import ImageField from "@/components/Form/ImageField";
 
 const TestePage = () => {
   return (
@@ -14,6 +15,7 @@ const TestePage = () => {
       </Button>
       <Link href="/">pagina inicial</Link>
       <TextField id="first_name" label="Primeiro nome" />
+      <ImageField label="Selecionar imagem" id="profile_picture" />
     </div>
   );
 };
