@@ -35,6 +35,44 @@ app.post("/auth/login", (req, res) => {
   }
 });
 
+app.post("/auth/register", (req, res, next) => {
+  const body = req.body;
+
+  const posts = app.db.get("users").value();
+  const id = posts.length ? Math.max(...posts.map((post) => post.id)) + 1 : 1;
+
+  // Adicionar o novo post ao banco de dados
+  app.db
+    .get("users")
+    .push({
+      ...body,
+      id,
+      avatar: null,
+      createdAt: new Date().toISOString(),
+    })
+    .write();
+
+  const token = jwt.sign({ email: body.email, sub: id }, MOCKED_SECRET, {
+    expiresIn: "1h",
+  });
+
+  // Customize the response here
+  res.status(201).json({
+    access_token: token,
+  });
+});
+
+app.post("/users/avatar", (req, res) => {
+  res.status(201).json({
+    id: 2,
+    email: "felicia@teste.com",
+    name: "Felicia Teste",
+    role: "USER",
+    avatar: "arquivo-mockado.jpg",
+    createdAt: "2024-07-26T08:13:19.954Z",
+  });
+});
+
 // You must apply the auth middleware before the router
 app.use(router);
 app.listen(3001);

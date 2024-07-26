@@ -1,6 +1,7 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "@/api";
+import { decryptToken } from "@/helpers/decryptToken";
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -21,9 +22,7 @@ const authOptions: NextAuthOptions = {
             password: credentials.password,
           });
 
-          const { sub: id } = JSON.parse(
-            Buffer.from(access_token.split(".")[1], "base64").toString()
-          );
+          const { id } = decryptToken(access_token);
 
           const { data: userData } = await axios.get(`/users/${id}`, {
             headers: { Authorization: `Bearer ${access_token}` },

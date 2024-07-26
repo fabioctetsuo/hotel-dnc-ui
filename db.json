@@ -17,6 +17,15 @@
       "id": 2,
       "avatar": null,
       "createdAt": "2024-07-26T06:08:53.884Z"
+    },
+    {
+      "name": "Felicia Teste",
+      "email": "felicia@teste.com",
+      "password": "12345",
+      "role": "USER",
+      "id": 3,
+      "avatar": null,
+      "createdAt": "2024-07-26T07:55:02.304Z"
     }
   ]
 }
