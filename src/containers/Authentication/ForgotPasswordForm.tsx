@@ -4,7 +4,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import Image from "next/image";
 import TextField from "@/components/Form/TextField";
 import Button from "@/components/Button";
-import { recoverPassword } from "@/app/api/auth/recover-password/route";
+import { forgotPassword } from "@/app/api/auth/recover-password/route";
 import Alert from "@/components/Alert";
 
 const initialState = {
@@ -27,7 +27,7 @@ const SubmitButton = () => {
 };
 
 const ForgotPasswordForm = () => {
-  const [state, formAction] = useFormState(recoverPassword, initialState);
+  const [state, formAction] = useFormState(forgotPassword, initialState);
 
   return (
     <form className="w-full flex flex-col items-center" action={formAction}>
