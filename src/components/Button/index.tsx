@@ -19,14 +19,17 @@ export const Button = ({
   onClick,
   appearance = "primary",
   className,
+  disabled,
 }: ButtonTypes) => {
-  const commonStyles = "py-2 px-6 w-full border-none rounded-lg font-medium";
+  const commonStyles =
+    "py-2 px-6 w-full border-none rounded-lg font-medium disabled:bg-slate-300 disabled:cursor-not-allowed";
   const apperanceStyles = getClassNamesByType(appearance);
 
   return (
     <button
       onClick={onClick}
       className={`${commonStyles} ${apperanceStyles} ${className}`}
+      disabled={disabled}
     >
       {children}
     </button>

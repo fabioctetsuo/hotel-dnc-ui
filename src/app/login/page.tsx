@@ -28,7 +28,7 @@ const LoginPage: NextPage<{ searchParams: SearchParams }> = ({
       <Link href="/cadastrar" className="my-2">
         Cadastre-se
       </Link>
-      <Link href="/">Esqueci minha senha</Link>
+      <Link href="/esqueci-senha">Esqueci minha senha</Link>
     </article>
   );
 };

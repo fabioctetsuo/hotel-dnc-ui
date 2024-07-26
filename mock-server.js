@@ -62,6 +62,10 @@ app.post("/auth/register", (req, res, next) => {
   });
 });
 
+app.post("/auth/forgot-password", (req, res, next) => {
+  res.status(201).send("A verification code has been sent to mock@teste.com");
+});
+
 app.post("/users/avatar", (req, res) => {
   res.status(201).json({
     id: 2,
