@@ -3,8 +3,8 @@ import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { getHotelById } from "@/app/api/hotels/route";
 import Link from "@/components/Link";
-import Button from "@/components/Button";
-import CalendarField from "@/components/Form/CalendarField";
+import BookingHotelForm from "@/containers/Hotels/BookingHotelForm";
+import { getFormattedPrice } from "@/helpers/getFormattedPrice";
 
 type HotelType = {
   id: number;
@@ -84,8 +84,10 @@ const HotelsPage = async ({ params }: PageProps) => {
         </article>
         <article className="w-full h-auto shadow-lg rounded-xl ml-4 p-8 flex flex-col">
           <span className="flex text-2xl font-light">
-            <b className="font-bold">R$ {hotel.price}</b>&nbsp;noite
+            <b className="font-bold">{getFormattedPrice(hotel.price)}</b>
+            &nbsp;noite
           </span>
+          <BookingHotelForm hotel={hotel} />
         </article>
       </section>
     </div>

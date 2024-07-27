@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { HotelType } from "../../../types/hotel";
 import Link from "next/link";
+import { getFormattedPrice } from "@/helpers/getFormattedPrice";
 
 type HotelCardProps = {
   hotel: HotelType;
@@ -23,7 +24,7 @@ export const HotelCard = ({ hotel }: HotelCardProps) => {
         <h3 className="font-bold mt-2">{hotel.name}</h3>
         <span className="mt-2">{hotel.owner.name}</span>
         <span className="mt-2">
-          <b>R$ {hotel.price}</b> noite
+          <b>{getFormattedPrice(hotel.price)}</b> noite
         </span>
       </article>
     </Link>

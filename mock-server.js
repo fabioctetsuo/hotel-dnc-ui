@@ -111,6 +111,20 @@ app.get("/hotels", (req, res) => {
   });
 });
 
+app.post("/reservations", (req, res) => {
+  res.status(201).jsonp({
+    id: 1,
+    userId: 2,
+    hotelId: 2,
+    checkIn: "2024-07-30T03:00:00.000Z",
+    checkOut: "2024-08-05T03:00:00.000Z",
+    total: -5760,
+    status: "PENDING",
+    createdAt: "2024-07-27T07:22:32.404Z",
+    updatedAt: "2024-07-27T07:22:32.404Z",
+  });
+});
+
 // You must apply the auth middleware before the router
 app.use(router);
 app.listen(3000);
