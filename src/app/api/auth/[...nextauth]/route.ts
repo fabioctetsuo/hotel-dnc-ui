@@ -2,6 +2,7 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "@/api";
 import { decryptToken } from "@/helpers/decryptToken";
+import { cookies } from "next/headers";
 
 const authOptions: NextAuthOptions = {
   providers: [
@@ -33,6 +34,9 @@ const authOptions: NextAuthOptions = {
             image: userData.avatar,
             ...userData,
           };
+
+          cookies().set("access_token", access_token);
+
           return user;
         } catch (error) {
           throw new Error("Credenciais inválidas");
@@ -42,11 +46,10 @@ const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async jwt({ token, user }) {
-      if (user) token.accessToken = user.access_token;
-      return token;
+      return { ...token, ...user };
     },
     async session({ session, token }) {
-      session.accessToken = token.accessToken as string;
+      session.user = token as any;
       return session;
     },
   },

@@ -28,5 +28,10 @@ export const getPaginationRange = (
     startPage = Math.max(1, totalPages - MAX_PAGES + 1);
   }
 
-  return Array.from({ length: MAX_PAGES }, (_, value) => startPage + value);
+  const paginationLength = totalPages < MAX_PAGES ? totalPages : MAX_PAGES;
+
+  return Array.from(
+    { length: paginationLength },
+    (_, value) => startPage + value
+  );
 };

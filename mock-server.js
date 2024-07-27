@@ -84,6 +84,33 @@ app.post("/users/avatar", (req, res) => {
   });
 });
 
+app.get("/hotels", (req, res) => {
+  // Pega os parâmetros de paginação da requisição
+  const page = Number(req.query.page) || 1;
+  const perPage = Number(req.query.limit) || 10;
+
+  // Obtém todos os hotéis
+  const hotels = app.db.get("hotels").value();
+
+  // Calcula o total de hotéis
+  const total = hotels.length;
+
+  // Calcula o índice de início e fim da página
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+
+  // Seleciona os hotéis para a página atual
+  const paginatedHotels = hotels.slice(start, end);
+
+  // Envia a resposta com a paginação
+  res.status(200).jsonp({
+    total: total,
+    page: page,
+    per_page: perPage,
+    data: paginatedHotels,
+  });
+});
+
 // You must apply the auth middleware before the router
 app.use(router);
-app.listen(3001);
+app.listen(3000);

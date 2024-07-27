@@ -27,5 +27,67 @@
       "avatar": null,
       "createdAt": "2024-07-26T07:55:02.304Z"
     }
+  ],
+  "hotels": [
+    {
+      "id": 1,
+      "name": "Hotel Dnc Eletro",
+      "description": "Hotel bonito",
+      "address": "Rua Dnc, 123",
+      "image": "http://localhost:3000/_next/image?url=%2Fhotel1.jpg&w=256&q=75",
+      "price": 300,
+      "ownerId": 1,
+      "createdAt": "2024-07-26T21:17:35.575Z",
+      "updatedAt": "2024-07-26T21:17:35.575Z",
+      "owner": {
+        "id": 1,
+        "email": "rafa@mock.com",
+        "password": "12345",
+        "name": "Rafael Mock",
+        "role": "ADMIN",
+        "avatar": null,
+        "createdAt": "2024-07-25T00:46:18.442Z"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Cabana Miralle I",
+      "description": "Cabana Miralle é uma experiência ímpar! Exclusiva estrutura de steel frame em frente a Pedra Grande em Atibaia.",
+      "address": "Estrada das Montanhas, 7 - Montanhas - SP",
+      "image": null,
+      "price": 960,
+      "ownerId": 1,
+      "createdAt": "2024-07-26T21:19:42.161Z",
+      "updatedAt": "2024-07-26T21:19:42.161Z",
+      "owner": {
+        "name": "Fabio Tetsuo",
+        "email": "fabio@teste.com",
+        "password": "12345",
+        "role": "ADMIN",
+        "id": 2,
+        "avatar": null,
+        "createdAt": "2024-07-26T06:08:53.884Z"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Casa de frente pra praia",
+      "description": "Casa de frente pra praia é uma experiência ímpar! Exclusiva estrutura de steel frame em frente ao principal ponto de Ubatuba.",
+      "address": "Avenida da Praia, 7 - Ubatuba - SP",
+      "image": null,
+      "price": 320,
+      "ownerId": 1,
+      "createdAt": "2024-07-26T21:21:07.331Z",
+      "updatedAt": "2024-07-26T21:21:07.331Z",
+      "owner": {
+        "name": "Fabio Tetsuo",
+        "email": "fabio@teste.com",
+        "password": "12345",
+        "role": "ADMIN",
+        "id": 2,
+        "avatar": null,
+        "createdAt": "2024-07-26T06:08:53.884Z"
+      }
+    }
   ]
 }
