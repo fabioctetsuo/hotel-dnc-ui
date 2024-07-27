@@ -12,3 +12,13 @@ export async function getHotels(page: number, limit: number) {
 
   return data;
 }
+
+export async function getHotelById(hotelId: number) {
+  const accessToken = cookies().get("access_token")?.value;
+
+  const { data } = await axios.get(`/hotels/${hotelId}`, {
+    headers: { Authorization: `Bearer ${accessToken}` },
+  });
+
+  return data;
+}

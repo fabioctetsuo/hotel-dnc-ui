@@ -34,7 +34,7 @@
       "name": "Hotel Dnc Eletro",
       "description": "Hotel bonito",
       "address": "Rua Dnc, 123",
-      "image": "http://localhost:3000/_next/image?url=%2Fhotel1.jpg&w=256&q=75",
+      "image": "/hotel1.jpg",
       "price": 300,
       "ownerId": 1,
       "createdAt": "2024-07-26T21:17:35.575Z",
