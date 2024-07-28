@@ -2,6 +2,8 @@
 import axios from "@/api";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { getHotelById } from "../hotels/route";
+import { ReservationType } from "../../../../types/reservation";
 
 export async function bookHotelById(prevState: any, formData: FormData) {
   let bookingId;
@@ -24,4 +26,26 @@ export async function bookHotelById(prevState: any, formData: FormData) {
   }
 
   redirect(`/reserva/${bookingId}`);
+}
+
+export async function getReservationById(id: number) {
+  const accessToken = cookies().get("access_token")?.value;
+
+  const { data } = await axios.get(`/reservations/${id}`, {
+    headers: { Authorization: `Bearer ${accessToken}` },
+  });
+
+  const hotel = await getHotelById(data.hotelId);
+
+  return { ...data, hotel };
+}
+
+export async function getReservationsByUser(): Promise<ReservationType[]> {
+  const accessToken = cookies().get("access_token")?.value;
+
+  const { data } = await axios.get(`/reservations/user`, {
+    headers: { Authorization: `Bearer ${accessToken}` },
+  });
+
+  return data;
 }

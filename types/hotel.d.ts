@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export type HotelType = {
   id: number;
   name: string;
@@ -8,13 +10,5 @@ export type HotelType = {
   ownerId: number;
   createdAt: string;
   updatedAt: string;
-  owner: {
-    id: number;
-    email: string;
-    password: string;
-    name: string;
-    role: "ADMIN" | "USER";
-    avatar: string | null;
-    createdAt: string;
-  };
+  owner: User;
 };
