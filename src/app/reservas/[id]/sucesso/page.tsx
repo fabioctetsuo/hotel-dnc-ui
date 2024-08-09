@@ -50,7 +50,7 @@ const ReservationSuccessPage = async ({ params }: PageProps) => {
   const { hotel } = reservation;
 
   return (
-    <div className="flex flex-col w-full max-w-lg my-24">
+    <div className="flex flex-col w-full max-w-lg my-24 px-8">
       <section className="w-full">
         <Link href="/reservas">Voltar</Link>
       </section>

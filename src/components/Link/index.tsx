@@ -8,7 +8,7 @@ type LinkProps = NextLinkProps & {
 export const Link = ({ className, ...props }: LinkProps) => (
   <NextLink
     {...props}
-    className={`text-main-brand-green-500 font-medium ${className}`}
+    className={`text-main-brand-green-500 font-medium text-center ${className}`}
   />
 );
 

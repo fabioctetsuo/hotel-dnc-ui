@@ -16,6 +16,7 @@ declare module "next-auth" {
       email: string;
       role: "ADMIN" | "USER";
       avatar: string | null;
+      image: string | null;
       createdAt: string;
       access_token: string;
     };

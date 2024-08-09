@@ -59,11 +59,12 @@ export const BookingHotelForm = ({ hotel }: BookingHotelFormType) => {
           id="checkIn"
           name="checkIn"
           label="Data de check-in"
-          className="w-full mr-2"
+          className="w-full m-5"
           min={today}
           onChange={(event: ChangeEvent<HTMLInputElement>) => {
             setCheckinDate(event.target.value);
           }}
+          required
         />
         <CalendarField
           id="checkOut"
@@ -74,14 +75,20 @@ export const BookingHotelForm = ({ hotel }: BookingHotelFormType) => {
           onChange={(event: ChangeEvent<HTMLInputElement>) => {
             setCheckoutDate(event.target.value);
           }}
+          required
         />
       </div>
       <div className="flex w-full justify-between font-bold  mt-6">
         <span>Valor total</span>
         <span>{getFormattedPrice(estimatedValue)}</span>
       </div>
-      <hr className="my-10" />
-      <Button appearance="primary" type="submit" disabled={pending}>
+      <hr className="mt-10" />
+      <Button
+        appearance="primary"
+        type="submit"
+        disabled={pending}
+        className="block mt-10"
+      >
         Reservar
       </Button>
     </form>

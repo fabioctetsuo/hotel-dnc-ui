@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Header from "../Header";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -8,14 +8,7 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <header className="w-full flex justify-center py-5 border-b border-b-light-grey-400">
-        <Image
-          src="/logo-dnc.png"
-          alt="Next Away logo"
-          width={45}
-          height={40}
-        />
-      </header>
+      <Header />
       <main className="w-full flex justify-center align-middle">
         {children}
       </main>

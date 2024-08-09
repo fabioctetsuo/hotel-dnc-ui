@@ -3,17 +3,52 @@ import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { getProfile } from "@/app/api/users/route";
 import Link from "@/components/Link";
-import BookingHotelForm from "@/containers/Hotels/BookingHotelForm";
-import { getFormattedPrice } from "@/helpers/getFormattedPrice";
-import { User } from "../../../types/user";
-import { getFormattedDate } from "@/helpers/getFormattedDate";
+import ReservationListItem from "@/components/ReservationListItem";
+import DetailContainer from "@/components/DetailContainer";
+import DetailRow from "@/components/DetailContainer/DetailRow";
+import { Profile } from "../../../types/user";
+import HotelListItem from "@/components/HotelListItem";
 
-type ParamsType = {
-  id: string;
+type CommonProps = {
+  user: Profile;
 };
 
-type PageProps = {
-  params: ParamsType;
+const RecentReservation = ({ user }: CommonProps) => {
+  return (
+    <>
+      {user.lastReservation ? (
+        <ReservationListItem reservation={user.lastReservation} />
+      ) : (
+        <div>Nao ha reservas ainda</div>
+      )}
+
+      <Link href="/reservas" className="block mt-10">
+        Ver todas as reservas
+      </Link>
+    </>
+  );
+};
+
+const MyHotels = ({ user }: CommonProps) => {
+  const allHotels = user.hotels ?? [];
+  const recentHotels = [...allHotels].splice(0, 2);
+  return (
+    <>
+      {recentHotels ? (
+        recentHotels.map((hotel) => (
+          <div key={hotel.id} className="mt-5 first:mt-0">
+            <HotelListItem hotel={hotel} />
+          </div>
+        ))
+      ) : (
+        <div>Nao ha hospedagens cadastradas</div>
+      )}
+
+      <Link href="/minhas-hospedagens" className="block mt-10">
+        Ver todas as hospedagens
+      </Link>
+    </>
+  );
 };
 
 const PerfilPage = async () => {
@@ -22,70 +57,44 @@ const PerfilPage = async () => {
 
   const user = await getProfile();
 
+  const asideContainer =
+    user.role === "USER"
+      ? {
+          title: "Reserva mais recente",
+          children: <RecentReservation user={user} />,
+        }
+      : {
+          title: "Minhas hospedagens",
+          children: <MyHotels user={user} />,
+        };
+
   return (
-    <div className="flex flex-col w-full px-10 py-20 sm:px-20 md:px-32 lg:px-56 xl:px-72">
-      <section className="w-full">
-        <Link href="/">Voltar</Link>
-      </section>
-      <section className="flex flex-col mt-2 md:flex-row">
-        <article className="w-full">
-          <h1 className="font-bold text-4xl">Meu perfil</h1>
-          <div className="mt-4 flex flex-col justify-center items-center">
-            <Image
-              src={user.avatar ?? "/default-shadow-profile.jpg"}
-              alt={`Foto de perfil do anfitriao ${user.name}`}
-              width={300}
-              height={300}
-              className="rounded-full w-36 h-36 object-cover"
-            />
-            <div className="flex flex-col mt-4 justify-center">
-              <span>
-                Na DNC hotel desde {new Date(user.createdAt).getFullYear()}
-              </span>
-            </div>
+    <DetailContainer title="Meu perfil" asideContainer={asideContainer}>
+      <>
+        <div className="mt-4 flex flex-col justify-center items-center">
+          <Image
+            src={user.avatar ?? "/default-shadow-profile.jpg"}
+            alt={`Foto de perfil do anfitriao ${user.name}`}
+            width={300}
+            height={300}
+            className="rounded-full w-36 h-36 object-cover"
+          />
+          <div className="flex flex-col mt-4 justify-center">
+            <span>
+              Na DNC hotel desde {new Date(user.createdAt).getFullYear()}
+            </span>
           </div>
-          <hr className="my-6" />
-          <div className="mt-4 flex flex-col justify-between font-bold lg:flex-row">
-            <span>Endereço</span>
-            <span>{user.name}</span>
-          </div>
-          <div className="mt-4 flex flex-col justify-between font-bold lg:flex-row">
-            <span>Sobre este espaço</span>
-            <span>{user.email}</span>
-          </div>
-        </article>
-        <article className="w-full h-auto shadow-lg rounded-xl ml-4 p-8 flex flex-col">
-          <span className="flex text-2xl font-bold">Reserva mais recente</span>
-          <div className="flex w-full mt-10">
-            <Image
-              src={user.lastReservation.hotel.image ?? "/default-hotel.jpg"}
-              alt={`Foto do ${user.lastReservation.hotel.name}`}
-              width={300}
-              height={300}
-              className="rounded-lg w-32 h-32 object-cover"
-            />
-            <div className="w-full flex flex-col justify-between  ml-4">
-              <b>{user.lastReservation.hotel.name}</b>
-              <div>
-                <div className="mt-2 flex flex-col justify-between font-bold lg:flex-row">
-                  <span>Sobre este espaço</span>
-                  <span>{user.lastReservation.status}</span>
-                </div>
-                <div className="mt-2 flex flex-col justify-between font-bold lg:flex-row">
-                  <span>Check-in</span>
-                  <span>{getFormattedDate(user.lastReservation.checkIn)}</span>
-                </div>
-                <div className="mt-2 flex flex-col justify-between font-bold lg:flex-row">
-                  <span>Check-out</span>
-                  <span>{getFormattedDate(user.lastReservation.checkOut)}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* <BookingHotelForm hotel={hotel} /> */}
-        </article>
-      </section>
-    </div>
+        </div>
+        <hr className="my-6" />
+        <DetailRow title="Nome" description={user.name} className="mt-2" />
+        <DetailRow title="E-mail" description={user.email} className="mt-2" />
+        <div className="w-full mt-10 ">
+          <Link href="/perfil/editar" className="block">
+            Editar perfil
+          </Link>
+        </div>
+      </>
+    </DetailContainer>
   );
 };
 

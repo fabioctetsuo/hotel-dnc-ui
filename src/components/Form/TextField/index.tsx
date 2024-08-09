@@ -3,6 +3,7 @@ import React from "react";
 type TextFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label: string;
   error?: string | null;
+  type?: string;
 };
 
 export const TextField = ({

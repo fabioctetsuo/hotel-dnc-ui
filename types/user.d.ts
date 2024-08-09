@@ -1,9 +1,11 @@
+import { HotelType } from "./hotel";
 import { ReservationType } from "./reservation";
 
 export type UserRole = "ADMIN" | "USER";
 
 export type Profile = User & {
-  lastReservation: ReservationType;
+  lastReservation?: ReservationType;
+  hotels?: HotelType[];
 };
 
 export type User = {

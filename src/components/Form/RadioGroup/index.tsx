@@ -15,7 +15,7 @@ export const RadioGroup = ({ name, options }: RadioGroupProps) => {
       <legend>Você deseja anunciar hospedagens?</legend>
       <div className="flex">
         {options.map(({ label, id, value }) => (
-          <div className="flex items-center me-4">
+          <div className="flex items-center me-4" key={id}>
             <input
               id={id}
               type="radio"

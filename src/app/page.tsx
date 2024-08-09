@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import Pagination from "@/components/Pagination";
@@ -26,7 +25,6 @@ const LIMIT = 10;
 
 const HotelsPage = async ({ searchParams }: PageProps) => {
   const session = await getServerSession();
-
   if (!session?.user) redirect("/login");
 
   const currentPage = Number(searchParams.page ?? 1);
@@ -47,7 +45,7 @@ const HotelsPage = async ({ searchParams }: PageProps) => {
         <Pagination
           currentPage={currentPage}
           totalPages={Math.ceil(total / per_page)}
-          href="/hotels"
+          href=""
         />
       </section>
     </div>

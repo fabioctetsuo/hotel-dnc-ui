@@ -1,6 +1,12 @@
 "use server";
 import axios from "@/api";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+
+export async function deleteCookies() {
+  cookies().delete("access_token");
+  redirect("/login");
+}
 
 export async function signup(formData: FormData) {
   const payload = {

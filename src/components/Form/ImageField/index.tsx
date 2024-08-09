@@ -5,9 +5,14 @@ type ImageFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string;
 };
 
-const MAX_SIZE = 300 * 1024; // tamanho maximo de 300KB
+const MAX_SIZE = 800 * 1024; // tamanho maximo de 300KB
 
-export const ImageField = ({ id, name, label }: ImageFieldProps) => {
+export const ImageField = ({
+  id,
+  name,
+  label,
+  defaultValue,
+}: ImageFieldProps) => {
   const [image, setImage] = useState<string | null | ArrayBuffer>(null);
   const [exceededMaxSize, setExceededMaxSize] = useState(false);
 
@@ -31,7 +36,7 @@ export const ImageField = ({ id, name, label }: ImageFieldProps) => {
   return (
     <div className="w-full flex flex-col justify-center items-center">
       <Image
-        src={image ? (image as string) : "/default-shadow-profile.jpg"}
+        src={(image as string) ?? defaultValue ?? "/default-shadow-profile.jpg"}
         width={100}
         height={100}
         alt="Default Profile Picture"
