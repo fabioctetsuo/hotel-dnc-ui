@@ -98,9 +98,18 @@
       "checkIn": "2024-07-30T03:00:00.000Z",
       "checkOut": "2024-08-05T03:00:00.000Z",
       "total": -5760,
-      "status": "PENDING",
+      "status": "APPROVED",
       "createdAt": "2024-07-27T07:22:32.404Z",
-      "updatedAt": "2024-07-27T07:22:32.404Z"
+      "updatedAt": "2024-07-27T07:22:32.404Z",
+      "user": {
+        "name": "Fabio Tetsuo",
+        "email": "fabio@teste.com",
+        "password": "12345",
+        "role": "ADMIN",
+        "id": 2,
+        "avatar": null,
+        "createdAt": "2024-07-26T06:08:53.884Z"
+      }
     },
     {
       "id": 2,
@@ -111,7 +120,16 @@
       "total": -5760,
       "status": "APPROVED",
       "createdAt": "2024-07-27T07:22:32.404Z",
-      "updatedAt": "2024-07-27T07:22:32.404Z"
+      "updatedAt": "2024-07-27T07:22:32.404Z",
+      "user": {
+        "name": "Felicia Teste",
+        "email": "felicia@teste.com",
+        "password": "12345",
+        "role": "USER",
+        "id": 3,
+        "avatar": null,
+        "createdAt": "2024-07-26T07:55:02.304Z"
+      }
     }
   ]
 }

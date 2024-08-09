@@ -37,7 +37,7 @@ export async function updateUser(formData: FormData) {
   if (!accessToken) redirect("/login");
 
   const { id } = decryptToken(accessToken);
-  const avatar = formData.get("avatar");
+  const avatar = formData.get("avatar") as unknown as File;
 
   const payload = {
     name: formData.get("name"),
@@ -50,7 +50,7 @@ export async function updateUser(formData: FormData) {
     },
   });
 
-  if (avatar) {
+  if (avatar?.size) {
     const avatarFormData = new FormData();
     avatarFormData.append("avatar", formData.get("avatar") as Blob);
 

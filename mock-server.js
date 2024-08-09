@@ -111,6 +111,12 @@ app.get("/hotels", (req, res) => {
   });
 });
 
+app.get("/hotels/owner", (req, res) => {
+  const hotels = app.db.get("hotels").value();
+
+  res.status(200).jsonp(hotels);
+});
+
 app.post("/reservations", (req, res) => {
   res.status(201).jsonp({
     id: 1,
@@ -123,6 +129,39 @@ app.post("/reservations", (req, res) => {
     createdAt: "2024-07-27T07:22:32.404Z",
     updatedAt: "2024-07-27T07:22:32.404Z",
   });
+});
+
+app.post("/hotels", (req, res) => {
+  res.status(201).jsonp({
+    id: 1,
+    name: "Hotel Dnc Eletro",
+    description: "Hotel bonito",
+    address: "Rua Dnc, 123",
+    image: "/hotel1.jpg",
+    price: 300,
+    ownerId: 1,
+    createdAt: "2024-07-26T21:17:35.575Z",
+    updatedAt: "2024-07-26T21:17:35.575Z",
+    owner: {
+      id: 1,
+      email: "rafa@mock.com",
+      password: "12345",
+      name: "Rafael Mock",
+      role: "ADMIN",
+      avatar: null,
+      createdAt: "2024-07-25T00:46:18.442Z",
+    },
+  });
+});
+
+app.get("/reservations/user", (req, res) => {
+  const reservations = app.db.get("reservations").value();
+  res.status(200).jsonp(reservations);
+});
+
+app.get("/reservations/hotel/:id", (req, res) => {
+  const reservations = app.db.get("reservations").value();
+  res.status(200).jsonp(reservations);
 });
 
 // You must apply the auth middleware before the router
