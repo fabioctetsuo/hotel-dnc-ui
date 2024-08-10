@@ -18,7 +18,7 @@ type PageProps = {
   params: ParamsType;
 };
 
-export async function DetalhesReservaPage({ params }: PageProps) {
+const DetalhesReservaPage = async ({ params }: PageProps) => {
   const session = await getServerSession();
   if (!session?.user) redirect("/login");
 
@@ -84,6 +84,6 @@ export async function DetalhesReservaPage({ params }: PageProps) {
       </>
     </DetailContainer>
   );
-}
+};
 
 export default DetalhesReservaPage;
