@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { getHotelById } from "@/app/api/hotels/route";
+import { getHotelById } from "@/app/api/hotels/actions";
 import Link from "@/components/Link";
 import BookingHotelForm from "@/containers/Hotels/BookingHotelForm";
 import { getFormattedPrice } from "@/helpers/getFormattedPrice";

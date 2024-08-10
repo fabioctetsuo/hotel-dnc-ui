@@ -1,6 +1,6 @@
 import ReservationOwnerListItem from "@/components/ReservationListItem/Owner";
-import { getReservationsByHotel } from "@/app/api/reservations/route";
-import { getHotelById } from "@/app/api/hotels/route";
+import { getReservationsByHotel } from "@/app/api/reservations/actions";
+import { getHotelById } from "@/app/api/hotels/actions";
 import { STATUS } from "@/helpers/dictionary/status";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";

@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import Link from "@/components/Link";
 import BookingHotelForm from "@/containers/Hotels/BookingHotelForm";
 import { getFormattedPrice } from "@/helpers/getFormattedPrice";
-import { getReservationById } from "@/app/api/reservations/route";
+import { getReservationById } from "@/app/api/reservations/actions";
 import {
   ReservationStatusType,
   ReservationType,

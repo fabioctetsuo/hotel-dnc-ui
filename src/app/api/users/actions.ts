@@ -3,8 +3,8 @@ import axios from "@/api";
 import decryptToken from "@/helpers/decryptToken";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { getReservationsByUser } from "../reservations/route";
-import { getHotelByOwner } from "../hotels/route";
+import { getReservationsByUser } from "../reservations/actions";
+import { getHotelByOwner } from "../hotels/actions";
 import { Profile } from "../../../../types/user";
 
 export async function getProfile(): Promise<Profile> {

@@ -1,4 +1,4 @@
-import { getReservationById } from "@/app/api/reservations/route";
+import { getReservationById } from "@/app/api/reservations/actions";
 import DetailContainer from "@/components/DetailContainer";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";

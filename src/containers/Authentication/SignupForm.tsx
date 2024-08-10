@@ -3,8 +3,8 @@ import TextField from "@/components/Form/TextField";
 import ImageField from "@/components/Form/ImageField";
 import RadioGroup from "@/components/Form/RadioGroup";
 import Button from "@/components/Button";
-import { signup } from "@/app/api/auth/signup/route";
-import { updateUser } from "@/app/api/users/route";
+import { signup } from "@/app/api/auth/signup/actions";
+import { updateUser } from "@/app/api/users/actions";
 
 type UserFormProps = {
   user?: {
@@ -16,7 +16,11 @@ type UserFormProps = {
 
 const UserForm = ({ user }: UserFormProps) => {
   return (
-    <form className="w-full" action={user ? updateUser : signup}>
+    <form
+      data-testid="user-form"
+      className="w-full"
+      action={user ? updateUser : signup}
+    >
       <ImageField
         label="Selecionar foto"
         id="avatar"

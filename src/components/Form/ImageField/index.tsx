@@ -31,8 +31,6 @@ export const ImageField = ({
     }
   };
 
-  console.log({ exceededMaxSize });
-
   return (
     <div className="w-full flex flex-col justify-center items-center">
       <Image

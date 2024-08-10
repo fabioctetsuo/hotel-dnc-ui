@@ -9,6 +9,7 @@ export async function deleteCookies() {
 }
 
 export async function signup(formData: FormData) {
+  console.log(`ajksdhjakshdjkashdjkashdjk`);
   const payload = {
     name: formData.get("name"),
     email: formData.get("email"),

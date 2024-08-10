@@ -2,7 +2,7 @@
 import TextField from "@/components/Form/TextField";
 import MaskedInput from "@/components/Form/MaskedInput";
 import Button from "@/components/Button";
-import { createHotel } from "@/app/api/hotels/route";
+import { createHotel } from "@/app/api/hotels/actions";
 import { useFormState, useFormStatus } from "react-dom";
 import ImageField from "@/components/Form/ImageField";
 

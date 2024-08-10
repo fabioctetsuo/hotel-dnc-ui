@@ -2,7 +2,7 @@
 import axios from "@/api";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { getHotelById } from "../hotels/route";
+import { getHotelById } from "../hotels/actions";
 import {
   ReservationStatusType,
   ReservationType,

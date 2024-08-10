@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { getProfile } from "@/app/api/users/route";
+import { getProfile } from "@/app/api/users/actions";
 import Link from "@/components/Link";
 import ReservationListItem from "@/components/ReservationListItem";
 import DetailContainer from "@/components/DetailContainer";

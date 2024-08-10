@@ -6,13 +6,12 @@ import { useState } from "react";
 import Button from "../Button";
 import { useRouter } from "next/navigation";
 import { cookies } from "next/headers";
-import { deleteCookies } from "@/app/api/auth/signup/route";
+import { deleteCookies } from "@/app/api/auth/signup/actions";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const session = useSession();
   const user = session.data?.user;
-
   const headerStyle = user ? "justify-between px-20" : "justify-center px-0";
   const menuStyle = showMenu ? "" : "sr-only";
 

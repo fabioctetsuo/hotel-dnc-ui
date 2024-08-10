@@ -1,10 +1,10 @@
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import Pagination from "@/components/Pagination";
-import { getHotels } from "@/app/api/hotels/route";
+import { getHotels } from "@/app/api/hotels/actions";
 import { HotelType } from "../../../types/hotel";
 import HotelCard from "@/containers/Hotels/HotelCard";
-import { getReservationsByUser } from "../api/reservations/route";
+import { getReservationsByUser } from "../api/reservations/actions";
 import ReservationListItem from "@/components/ReservationListItem";
 import { STATUS } from "@/helpers/dictionary/status";
 import { ReservationType } from "../../../types/reservation";

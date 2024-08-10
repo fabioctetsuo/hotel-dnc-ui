@@ -4,7 +4,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import Image from "next/image";
 import TextField from "@/components/Form/TextField";
 import Button from "@/components/Button";
-import { forgotPassword } from "@/app/api/auth/recover-password/route";
+import { forgotPassword } from "@/app/api/auth/recover-password/actions";
 import Alert from "@/components/Alert";
 
 const initialState = {

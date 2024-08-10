@@ -6,7 +6,7 @@ import CalendarField from "@/components/Form/CalendarField";
 
 import { HotelType } from "../../../types/hotel";
 import { ChangeEvent, useState } from "react";
-import { bookHotelById } from "@/app/api/reservations/route";
+import { bookHotelById } from "@/app/api/reservations/actions";
 import TextField from "@/components/Form/TextField";
 import { getFormattedPrice } from "@/helpers/getFormattedPrice";
 

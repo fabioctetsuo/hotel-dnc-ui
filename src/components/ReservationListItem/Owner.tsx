@@ -8,7 +8,7 @@ import Button from "@/components/Button";
 import Image from "next/image";
 import DetailRow from "../DetailContainer/DetailRow";
 import { getFormattedPrice } from "@/helpers/getFormattedPrice";
-import { updateReservationStatus } from "@/app/api/reservations/route";
+import { updateReservationStatus } from "@/app/api/reservations/actions";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 

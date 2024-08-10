@@ -1,7 +1,8 @@
 import axios from "axios";
+const API_URL = process.env.API_URL;
 
 export const instance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: API_URL ?? "http://localhost:3000",
   timeout: 10000,
 });
 

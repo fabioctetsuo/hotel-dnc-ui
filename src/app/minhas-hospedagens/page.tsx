@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { getHotelByOwner } from "@/app/api/hotels/route";
+import { getHotelByOwner } from "@/app/api/hotels/actions";
 import { HotelType } from "../../../types/hotel";
 import { ReservationType } from "../../../types/reservation";
 import HotelListItem from "@/components/HotelListItem";
